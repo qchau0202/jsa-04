@@ -12,6 +12,7 @@
 .left {
   width: 50%;
   display: flex;
+  margin-left: 90px;
 }
 .right {
   width: 50%;

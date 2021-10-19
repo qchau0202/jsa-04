@@ -25,8 +25,12 @@ for (let i = 0; i < 6; i++) {
     let image = document.createElement("img")
     product.appendChild(image)
     let productCSS = product.style
-    productCSS.width = "30%"
+    productCSS.width = "28%"
     productCSS.padding = "24px"
     productCSS.height = "500px"
-    productCSS.border="solid"
+    productCSS.border = "solid"
+    productCSS.margin = "0px 0px 40px 0px"
+    productCSS.backgroundColor = "rgba(249,250,251,var(--tw-bg-opacity))"
+    productCSS.borderRadius="0.5rem"
+    productCSS.boxSizing = "border-box"
 }
