@@ -5,31 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-do list</title>
-    <link rel="stylesheet" href="./hw.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link
       href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@bf7775b/css/all.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./hw.css">
 </head>
-<body>
-    <!-- box -->
-    <header>
-        <h1>TO-DO LIST</h1>
+<body class="font-mono bg-blue-200">
+    <!-- <li class="note">Hello JSA-04<i class="far fa-circle"></i></li> -->
+    <!-- header -->
+    <header class="flex justify-center w-full h-auto text-5xl text-white">
+        To-do's list
     </header>
-    <div class="container">
-        <div class="add-list">
-        <div id="add">
-          <input type="text" placeholder="Write down your entries !" id="enter">
-          <button id="btn">ADD</button>
+    <!-- header -->
+    <!-- container -->
+    <div class="main flex justify-center">
+    <div class="container rounded bg-white w-96 h-96 flex-wrap px-8 py-10">
+        <div class="form w-full h-12">
+            <input class="border rounded-md w-60 h-8 px-2" type="text" placeholder="What you up to ?" id="value">
+            <button class="border rounded-md w-16 h-8 bg-blue-500 hover:bg-blue-700 text-white" id="btn">ADD</button>
         </div>
-    </div>
-        <div class="box-list">
-        <ul id="todos">
-            <!-- <li class="note">Hello JSA-04<i class="far fa-circle"></i></li> -->
+        <ul id="box" class="w-full h-56">
+            <!-- <li class="leading-loose text-lg note flex justify-between">Hello world
+                <i class="far fa-circle mt-2.5"></i>
+            </li> -->
         </ul>
-    </div>
+        <button class="border rounded-md w-36 h-8 bg-red-500 hover:bg-red-700 text-white ml-24 mr-40" id="deleteBtn">DELETE ALL</button>
+        <p class="leading-loose ml-16">Notes: 6 entries only</p>
       </div>
-       <!-- box -->
+    </div>
+       <!-- container -->
     <script src="./hw.js"></script>
 </body>
 </html>
