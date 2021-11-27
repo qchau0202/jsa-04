@@ -26,41 +26,124 @@
   // } console.log(blank)
   // }})
 
-const getUl = document.getElementById("box")
-const getBtn = document.getElementById("btn")
-const getVal = document.getElementById("value")
-const noteEls=document.querySelectorAll(".note")
-const getDelBtn = document.getElementById("deleteBtn")
-let currentCount = 0
-getBtn.addEventListener("click", () => {  
-  if (getVal.value == "") {
-    alert("you're missing entries !")
-  } else if (currentCount < 6){
-    currentCount += 1;
-    // console.log(currentCount)
-    const itemEl = document.createElement("li")
-  const tickBox = document.createElement("i")
-  tickBox.className = "far fa-circle mt-2.5"
-    itemEl.className = "leading-loose text-lg note flex justify-between"
-    itemEl.textContent = getVal.value
-    itemEl.appendChild(tickBox)
-    getUl.appendChild(itemEl)
-    deleteBtn.addEventListener("click", () => {
-      getUl.removeChild(itemEl)
-      currentCount = 0
-  })
+  // const addEl = document.getElementById("add");
+// const subEl = document.getElementById("sub");
+// const countEl = document.getElementById("count");
+
+// let currentCount = 0;
+
+// addEl.addEventListener("click", () => {
+//   if (currentCount < 10) {
+//     currentCount += 1;
+//     countEl.textContent = currentCount;
+//   } else {
+//     alert("khong duoc phep tang nua");
+//   }
+// });
+
+// subEl.addEventListener("click", () => {
+//   if (currentCount > 0) {
+//     currentCount -= 1;
+//     countEl.textContent = currentCount;
+//   } else {
+//     alert("khong duoc phep giam nua");
+//   }
+// });
+
+const todos = [
+  // { title: "Ăn tối", isDone: false, id: 1 },
+  // { title: "Học bài", isDone: false, id: 2 },
+  // { title: "Đi ngủ", isDone: false, id: 3 },
+];
+
+console.log("before", todos);
+
+const todoEls = document.getElementById("todos");
+const todoInput = document.getElementById("todoVal");
+const todoBtn = document.getElementById("addTodo");
+
+function generatorTodoElement(todo) {
+  const container = document.createElement("div");
+  container.style.display = "flex";
+  container.style.justifyContent = "space-between";
+  container.style.marginBottom = "10px";
+
+  const deleteEl = document.createElement("span");
+  deleteEl.textContent = "X";
+  deleteEl.classList.add("deleteTodo");
+  deleteEl.setAttribute("data-id", todo.id);
+
+  const todoElement = document.createElement("li");
+  todoElement.setAttribute("class", todo.isDone ? "todoItem done" : "todoItem");
+  todoElement.setAttribute("data-id", todo.id);
+  todoElement.textContent = todo.title;
+
+  container.appendChild(todoElement);
+  container.appendChild(deleteEl);
+  return container;
+}
+
+function renderTodos(todosData) {
+  for (let todo of todosData) {
+    let todoNode = generatorTodoElement(todo);
+    todoEls.appendChild(todoNode);
   }
-  else {
-    alert("Too many work !");
+  editTodo();
+  removeTodo();
+}
+
+function editTodo() {
+  const todoItemEls = document.querySelectorAll(".todoItem");
+  todoItemEls.forEach((item) => {
+    item.addEventListener("dblclick", () => {
+      let todoId = item.getAttribute("data-id");
+      for (let val of todos) {
+        if (val.id == todoId) {
+          val.isDone = !val.isDone;
+        }
+      }
+      reRenderTodos();
+    });
+  });
+}
+
+function removeTodo() {
+  const todoItemEls = document.querySelectorAll(".deleteTodo");
+  for (let item of todoItemEls) {
+    item.addEventListener("click", () => {
+      let todoId = item.getAttribute("data-id");
+      for (let i = 0; i < todos.length; i++) {
+        if (todos[i].id == todoId) {
+          todos.splice(i, 1);
+          reRenderTodos();
+          break;
+        }
+      }
+    });
   }
-  const noteEls = document.querySelectorAll(".note")
-  for (let i = 0; i < noteEls.length; i++){
-      noteEls[i].addEventListener("click", function () {
-          // noteEls[i].classList.toggle("note-active")
-          noteEls[i].children[0].classList.toggle("note-checked")
-      })
+}
+
+function reRenderTodos() {
+  todoEls.innerHTML = "";
+  renderTodos(todos);
+}
+
+todoBtn.addEventListener("click", () => {
+  if (todoInput.value !== "") {
+    const newTodo = {
+      title: todoInput.value,
+      isDone: false,
+      id: `${new Date().valueOf()}`,
+    };
+    todos.push(newTodo);
+    todoInput.value = "";
+    reRenderTodos();
+  } else {
+    alert("Input khong duoc de trong");
   }
-})
+});
+
+renderTodos(todos);
 
   
   

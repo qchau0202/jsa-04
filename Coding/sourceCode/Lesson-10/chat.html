@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@bf7775b/css/all.css"
+      rel="stylesheet"
+    />
+</head>
+<body class="w-screen h-screen bg-gray-200">
+   <div class="chat-box bg-white h-5/6 w-1/2 mx-auto mt-24 border rounded-md">
+    <ul class="w-full h-2/4 bg-white mx-auto pl-8 flex flex-col justify-end mt-24" id="msgContainer">
+      <!-- <li class="flex items-center mb-4">
+         <div class="mr-2">
+             <img class="w-12 object-cover h-auto rounded-full" src="https://lh3.googleusercontent.com/a/AATXAJyJ7VBNmYCTKh6bVmupW8hVRMh07ck7AB_-Lhs-=s96-c" alt="">
+         <p class="mt-2 text-xs font-bold text-center"></p>
+           </div>
+           <p class="p-2 bg-gray-300 rounded-md">Lorem  delectus quod alii!</p>
+       </li>
+
+       <li class="flex items-center mb-4">
+           <div class="mr-2">
+               <img class="w-12 object-cover h-auto rounded-full" src="https://lh3.googleusercontent.com/a/AATXAJyJ7VBNmYCTKh6bVmupW8hVRMh07ck7AB_-Lhs-=s96-c" alt="">
+           <p class="mt-2 text-xs font-bold text-center">09:00</p>
+             </div>
+             <p class="p-2 bg-gray-300 rounded-md">Lorem  delectus quod alii!</p>
+         </li>
+
+         <li class="flex items-center mb-4">
+           <div class="mr-2">
+               <img class="w-12 object-cover h-auto rounded-full" src="https://lh3.googleusercontent.com/a/AATXAJyJ7VBNmYCTKh6bVmupW8hVRMh07ck7AB_-Lhs-=s96-c" alt="">
+           <p class="mt-2 text-xs font-bold text-center">09:00</p>
+             </div>
+             <p class="p-2 bg-gray-300 rounded-md">Hello there</p>
+         </li> -->
+  </ul>
+  <div class="flex justify-center mx-auto form bg-white pt-24">
+   <input type="text" class="border rounded-md bg-gray-200 w-3/4 h-12 mr-2 pl-6" placeholder="Aa" id="getValue">
+   <button class="border rounded-full bg-green-600 hover:bg-green-800 w-12 h-12 text-gray-200" id="btn"><i class="far fa-paper-plane"></i></button>
+     </div>
+   </div>
+   
+   
+   <script src="./js/chat.js" type="module"></script>
+</body>
+</html>
