@@ -12,39 +12,22 @@
     />
 </head>
 <body class="w-screen h-screen bg-gray-200">
-   <div class="chat-box bg-white h-5/6 w-1/2 mx-auto mt-24 border rounded-md">
+  <!-- logout button -->
+  <div class="flex justify-end">
+    <button id="logOut" class="border rounded-md px-2 py-2 w-22 mx-8 mt-2 text-white bg-green-600 hover:bg-green-800 font-mono">Log Out</button>
+  </div>
+    <!-- logout button -->
+<!-- chat box -->
+   <div class="chat-box bg-white h-5/6 w-1/2 mx-auto mt-12 border rounded-md">
     <ul class="w-full h-2/4 bg-white mx-auto pl-8 flex flex-col justify-end mt-24" id="msgContainer">
-      <!-- <li class="flex items-center mb-4">
-         <div class="mr-2">
-             <img class="w-12 object-cover h-auto rounded-full" src="https://lh3.googleusercontent.com/a/AATXAJyJ7VBNmYCTKh6bVmupW8hVRMh07ck7AB_-Lhs-=s96-c" alt="">
-         <p class="mt-2 text-xs font-bold text-center"></p>
-           </div>
-           <p class="p-2 bg-gray-300 rounded-md">Lorem  delectus quod alii!</p>
-       </li>
-
-       <li class="flex items-center mb-4">
-           <div class="mr-2">
-               <img class="w-12 object-cover h-auto rounded-full" src="https://lh3.googleusercontent.com/a/AATXAJyJ7VBNmYCTKh6bVmupW8hVRMh07ck7AB_-Lhs-=s96-c" alt="">
-           <p class="mt-2 text-xs font-bold text-center">09:00</p>
-             </div>
-             <p class="p-2 bg-gray-300 rounded-md">Lorem  delectus quod alii!</p>
-         </li>
-
-         <li class="flex items-center mb-4">
-           <div class="mr-2">
-               <img class="w-12 object-cover h-auto rounded-full" src="https://lh3.googleusercontent.com/a/AATXAJyJ7VBNmYCTKh6bVmupW8hVRMh07ck7AB_-Lhs-=s96-c" alt="">
-           <p class="mt-2 text-xs font-bold text-center">09:00</p>
-             </div>
-             <p class="p-2 bg-gray-300 rounded-md">Hello there</p>
-         </li> -->
-  </ul>
-  <div class="flex justify-center mx-auto form bg-white pt-24">
-   <input type="text" class="border rounded-md bg-gray-200 w-3/4 h-12 mr-2 pl-6" placeholder="Aa" id="getValue">
-   <button class="border rounded-full bg-green-600 hover:bg-green-800 w-12 h-12 text-gray-200" id="btn"><i class="far fa-paper-plane"></i></button>
-     </div>
-   </div>
-   
-   
+        </ul>
+        <div class="flex justify-center mx-auto form bg-white pt-24">
+          <input type="text" class="border rounded-md bg-gray-200 w-3/4 h-12 mr-2 pl-6" placeholder="Aa" id="getValue">
+          <button class="border rounded-full bg-green-600 hover:bg-green-800 w-12 h-12 text-gray-200" id="btn"><i class="far fa-paper-plane"></i></button>
+            </div>
+        </div>
+  <!-- chat box -->
+   <script src="./js/firebase-config.js" type="module"></script>
    <script src="./js/chat.js" type="module"></script>
 </body>
 </html>

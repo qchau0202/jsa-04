@@ -1,22 +1,25 @@
-// Sign in with google
+// Import stuffs
 import {
     GoogleAuthProvider,
     signInWithPopup,
     getAuth,
+    onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
-    // console.log(GoogleAuthProvider)
-    import {saveUserToLocalStorage} from "./helper.js"
+    import {saveUserToLocalStorage, getUserFromLocalStorage} from "./helper.js"
+// Import stuffs
     
+// Get
     const logInGGacc = document.getElementById("logInGoogleAcc")
-    
-    function signinWithGoogleAccount () {
+    const auth = getAuth();
+// Get
+
+// Define Google Sign in
+  function signinWithGoogleAccount() {
         const provider = new GoogleAuthProvider()
-        const auth = getAuth();
-    
         signInWithPopup(auth, provider)
         .then((result) => {
           const user = result.user;
-          saveUserToLocalStorage()
+          saveUserToLocalStorage(user)
           window.location.href = `./chat.html?uid=${user.uid}`
         })
         .catch((error) => {
@@ -24,7 +27,16 @@ import {
           alert(errorMessage);
         })
     }
-    logInGGacc.addEventListener("click", signinWithGoogleAccount);
 
-    // Sign in with github
+    // Define sign-in ( not returning to sign up page )
+  function onAuthenticationListener(user){
+console.log(user)
+if(user){
+  window.location.href = `./chat.html`
+} 
+  }
+logInGGacc.addEventListener("click", signinWithGoogleAccount);
+
+onAuthStateChanged(auth, onAuthenticationListener );
+
    
